@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddRGB</class>
+ <widget class="QDialog" name="AddRGB">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>482</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AddRGB</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>91</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="img_label">
+      <property name="text">
+       <string>Load Image</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="r_label">
+      <property name="text">
+       <string>Red Channel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="g_label">
+      <property name="text">
+       <string>Green Channel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="b_label">
+      <property name="text">
+       <string>Blue Channel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>10</y>
+     <width>311</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QComboBox" name="img_box"/>
+    </item>
+    <item>
+     <widget class="QComboBox" name="r_box"/>
+    </item>
+    <item>
+     <widget class="QComboBox" name="g_box"/>
+    </item>
+    <item>
+     <widget class="QComboBox" name="b_box"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>220</y>
+     <width>371</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="load_button">
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="cancel_button">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

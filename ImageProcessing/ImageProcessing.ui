@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ImageProcessingClass</class>
+ <widget class="QMainWindow" name="ImageProcessingClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1487</width>
+    <height>873</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ImageProcessing</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="Imageview" name="mainview"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1487</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="actionOpen_GeoTiff"/>
+    </widget>
+    <addaction name="menuOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>Display</string>
+    </property>
+    <widget class="QMenu" name="menuStretch">
+     <property name="title">
+      <string>Stretch</string>
+     </property>
+     <addaction name="action1_stretch"/>
+     <addaction name="action2_stretch"/>
+     <addaction name="action5_stretch"/>
+     <addaction name="actionhistogram_Equalization"/>
+     <addaction name="actionLogarithmic"/>
+    </widget>
+    <addaction name="actionOpen_RGB_image"/>
+    <addaction name="menuStretch"/>
+   </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <widget class="QMenu" name="menuClassification">
+     <property name="title">
+      <string>Classification</string>
+     </property>
+     <addaction name="actionSelect_Sample"/>
+     <addaction name="actionJM"/>
+     <addaction name="separator"/>
+     <addaction name="actionSVM"/>
+     <addaction name="actionBPnet"/>
+     <addaction name="separator"/>
+     <addaction name="actionISODATA"/>
+    </widget>
+    <widget class="QMenu" name="menuAnalysis">
+     <property name="title">
+      <string>Analysis</string>
+     </property>
+     <addaction name="actionPCA"/>
+    </widget>
+    <widget class="QMenu" name="menuImage_Processing">
+     <property name="title">
+      <string>Image Processing</string>
+     </property>
+     <widget class="QMenu" name="menuFilter">
+      <property name="title">
+       <string>Filter</string>
+      </property>
+      <addaction name="actionMajority"/>
+     </widget>
+     <addaction name="actionSegmentation"/>
+     <addaction name="menuFilter"/>
+     <addaction name="actionFFT"/>
+    </widget>
+    <widget class="QMenu" name="menuStatistic">
+     <property name="title">
+      <string>Statistic</string>
+     </property>
+     <addaction name="actionBasic_Statistic"/>
+     <addaction name="actionScatter"/>
+    </widget>
+    <addaction name="menuAnalysis"/>
+    <addaction name="menuClassification"/>
+    <addaction name="menuStatistic"/>
+    <addaction name="menuImage_Processing"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTool"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="listdock">
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Information</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QTreeWidget" name="fileListTree">
+       <column>
+        <property name="text">
+         <string>Image</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Tab 1</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_4"/>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Tab 2</string>
+        </attribute>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="tooldock">
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Tools</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLineEdit" name="searchLine"/>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="tooltree">
+       <column>
+        <property name="text">
+         <string>Tools</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>Analysis</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Scatter</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>PCA Analysis</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Classification</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select Sample(ROI)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>JM Distance</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Supervised Classification</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>SVM</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Network</string>
+          </property>
+         </item>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unsupervised Classification</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>ISODATA</string>
+          </property>
+         </item>
+        </item>
+        <item>
+         <property name="text">
+          <string>Majority</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Statistic</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Image Processing</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Segmentation</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>FFT</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen_GeoTiff"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionOpen_RGB_image"/>
+  </widget>
+  <action name="actionOpen_GeoTiff">
+   <property name="text">
+    <string>Open GeoTiff</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionOpen_RGB_image">
+   <property name="text">
+    <string>Load image RGB</string>
+   </property>
+  </action>
+  <action name="action1_stretch">
+   <property name="text">
+    <string>1% stretch</string>
+   </property>
+  </action>
+  <action name="action2_stretch">
+   <property name="text">
+    <string>2% stretch</string>
+   </property>
+  </action>
+  <action name="action5_stretch">
+   <property name="text">
+    <string>5%stretch</string>
+   </property>
+  </action>
+  <action name="actionhistogram_Equalization">
+   <property name="text">
+    <string>histogram Equalization</string>
+   </property>
+  </action>
+  <action name="actionPCA">
+   <property name="text">
+    <string>PCA Analysis</string>
+   </property>
+  </action>
+  <action name="actionSegmentation">
+   <property name="text">
+    <string>Segmentation</string>
+   </property>
+  </action>
+  <action name="actionBayers">
+   <property name="text">
+    <string>Naive Bayers</string>
+   </property>
+  </action>
+  <action name="actionSVM">
+   <property name="text">
+    <string>SVM</string>
+   </property>
+  </action>
+  <action name="actionISODATA">
+   <property name="text">
+    <string>ISODATA</string>
+   </property>
+  </action>
+  <action name="actionSelect_Sample">
+   <property name="text">
+    <string>Select Sample</string>
+   </property>
+  </action>
+  <action name="actionFFT">
+   <property name="text">
+    <string>FFT</string>
+   </property>
+  </action>
+  <action name="actionBPnet">
+   <property name="text">
+    <string>BP Network</string>
+   </property>
+  </action>
+  <action name="actionJM">
+   <property name="text">
+    <string>JM Distance</string>
+   </property>
+  </action>
+  <action name="actionBasic_Statistic">
+   <property name="text">
+    <string>Basic Statistic</string>
+   </property>
+  </action>
+  <action name="actionScatter">
+   <property name="text">
+    <string>Scatter</string>
+   </property>
+  </action>
+  <action name="actionLogarithmic">
+   <property name="text">
+    <string>Logarithmic</string>
+   </property>
+  </action>
+  <action name="actionMajority">
+   <property name="text">
+    <string>Majority</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Imageview</class>
+   <extends>QGraphicsView</extends>
+   <header location="global">Imageview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="ImageProcessing.qrc"/>
+ </resources>
+ <connections/>
+</ui>

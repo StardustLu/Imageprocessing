@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4BDA8BEB-22DA-4C0E-B292-015F4E0548B3}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>D:\VSlib\OpenCV\opencv\build\include;D:\VSlib\eigen\eigen-eigen-323c052e1731;D:\VSlib\gdal\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\VSlib\OpenCV\opencv\build\x64\vc15\lib;D:\VSlib\gdal\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>Qt5.14.2</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt5.14.2</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>D:\VSlib\eigen\eigen-eigen-323c052e1731;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gdal_i.lib;opencv_world420d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AddRGB.cpp" />
+    <ClCompile Include="BPNet.cpp" />
+    <ClCompile Include="DataManage.cpp" />
+    <ClCompile Include="Enhance.cpp" />
+    <ClCompile Include="Filter.cpp" />
+    <ClCompile Include="Filterdlg.cpp" />
+    <ClCompile Include="FourierTrans.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageProcessing.cpp" />
+    <ClCompile Include="Imageview.cpp" />
+    <ClCompile Include="ISODATA.cpp" />
+    <ClCompile Include="ISODATAdlg.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Networkdlg.cpp" />
+    <ClCompile Include="Otsudlg.cpp" />
+    <ClCompile Include="OtsuSeg.cpp" />
+    <ClCompile Include="PCAdlg.cpp" />
+    <ClCompile Include="PCAmat.cpp" />
+    <ClCompile Include="PCATrans.cpp" />
+    <ClCompile Include="SampleProcess.cpp" />
+    <ClCompile Include="ScatterPlot.cpp" />
+    <ClCompile Include="ShowImage.cpp" />
+    <ClCompile Include="Statistic.cpp" />
+    <ClCompile Include="StaWindow.cpp" />
+    <ClCompile Include="SVMBasic.cpp" />
+    <ClCompile Include="SVMClassifier.cpp" />
+    <ClCompile Include="SVMdlg.cpp" />
+    <ClCompile Include="ToolManage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ImageProcessing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="AddRGB.ui" />
+    <QtUic Include="Filterdlg.ui" />
+    <QtUic Include="ImageProcessing.ui" />
+    <QtUic Include="ISODATAdlg.ui" />
+    <QtUic Include="Networkdlg.ui" />
+    <QtUic Include="Otsudlg.ui" />
+    <QtUic Include="PCAdlg.ui" />
+    <QtUic Include="PCAmat.ui" />
+    <QtUic Include="ScatterPlot.ui" />
+    <QtUic Include="StaWindow.ui" />
+    <QtUic Include="SVMdlg.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="ImageProcessing.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Imageview.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BPNet.h" />
+    <QtMoc Include="Filterdlg.h" />
+    <ClInclude Include="Filter.h" />
+    <ClInclude Include="FourierTrans.h" />
+    <ClInclude Include="ISODATA.h" />
+    <QtMoc Include="Otsudlg.h" />
+    <QtMoc Include="ISODATAdlg.h" />
+    <QtMoc Include="Networkdlg.h" />
+    <ClInclude Include="OtsuSeg.h" />
+    <QtMoc Include="PCAdlg.h" />
+    <QtMoc Include="PCAmat.h" />
+    <ClInclude Include="SampleProcess.h" />
+    <ClInclude Include="SVMBasic.h" />
+    <ClInclude Include="SVMClassifier.h" />
+    <QtMoc Include="SVMdlg.h" />
+    <ClInclude Include="ToolManage.h" />
+    <QtMoc Include="StaWindow.h" />
+    <QtMoc Include="AddRGB.h" />
+    <ClInclude Include="DataManage.h" />
+    <ClInclude Include="Enhance.h" />
+    <ClInclude Include="Image.h" />
+    <QtMoc Include="ScatterPlot.h" />
+    <ClInclude Include="PCATrans.h" />
+    <ClInclude Include="ShowImage.h" />
+    <ClInclude Include="Statistic.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
